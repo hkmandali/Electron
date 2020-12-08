@@ -44,6 +44,6 @@ Examples as given below
 ### Command Prompt Execution - Exec
 * We can execute shell commands through electron as below
   > const exec = require('child_process').exec <br />
-    exec('enter command here',(error,stdout,stderr) =>{
-      console.log("output is "+stdout); // we can also perform all the string operations on stdout
+    exec('enter command here',(error,stdout,stderr) =>{ <br />
+      console.log("output is "+stdout); // we can also perform all the string operations on stdout <br />
     })
