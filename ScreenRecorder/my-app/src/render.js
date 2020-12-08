@@ -1,5 +1,7 @@
 //const { desktopCapturer,remote } = require('electron');
 const {desktopCapturer,ipcRenderer,app,BrowserWindow, MenuItem} = require('electron');
+const { stderr } = require('process');
+const exec = require('child_process').exec
 
 //const { dialog, Menu } = remote;
 const videoElement = document.querySelector('video');
@@ -8,6 +10,16 @@ const startBtn = document.querySelector('startButton');
 const stopBtn = document.querySelector('stopButton');
 const videoSelBtn = document.getElementById('videoselectButton');
 videoSelBtn.onclick =  getVideo;
+
+const whoBtn = document.getElementById('whoamI')
+whoBtn.onclick = whoamI
+
+function whoamI(){
+    exec('whoami',function(error,stdout,stderr){
+        console.log(stdout)
+    })
+
+}
 
 async function getVideo()
 {
