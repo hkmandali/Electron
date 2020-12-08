@@ -20,23 +20,23 @@ Electron is a framework for the development of desktop applications using web te
 Examples as given below
 
 * IPC Main : This is to be used in the main process for listening to the incoming requests . Example code as below
-  > const ipcMain = require('electron')
-    ipcMain.on('listeningtoEvent',(event,args) =>{
-       console.log("received data is "+args);
-       // we can perform some operation and return the data as below
-       event.returnValue = someData
-    })
-    // the above is for synchronous calls 
-    // For asynchronous we can do as below 
-    ipcMain.on('listeningtoAsynchronousEvent',(event,args) =>{
-       console.log("received data is "+args);
-       // we can perform some operation and return the data as below
-       event.reply('asynchronous-reply*',someData);  // * means that renderer should also be listening on the same event for asynchronous calls
-    })
-* IPC Renderer : This is to be used in the render process for calling / sending requests
-  > const ipcRenderer = require('electron')
-    ipcRenderer.send('sendingeventname',someData)  // usually send call is asynchronous , we can use ipcRenderer.sendSync for synchronous calls
-    For listening events on ipcRenderer , we can do
-    ipcRenderer.on('asynchronous-reply',(event,args)=>{
-      console.log("returned result is "+args)
+  > const ipcMain = require('electron') <br />
+    ipcMain.on('listeningtoEvent',(event,args) =>{ <br />
+       console.log("received data is "+args); <br />
+       // we can perform some operation and return the data as below <br />
+       event.returnValue = someData <br />
+    }) <br />
+    // the above is for synchronous calls <br />
+    // For asynchronous we can do as below  <br />
+    ipcMain.on('listeningtoAsynchronousEvent',(event,args) =>{ <br />
+       console.log("received data is "+args); <br />
+       // we can perform some operation and return the data as below <br />
+       event.reply('asynchronous-reply*',someData);  // * means that renderer should also be listening on the same event for asynchronous calls <br />
+    }) <br />
+* IPC Renderer : This is to be used in the render process for calling / sending requests <br />
+  > const ipcRenderer = require('electron') <br />
+    ipcRenderer.send('sendingeventname',someData)  // usually send call is asynchronous , we can use ipcRenderer.sendSync for synchronous calls <br />
+    For listening events on ipcRenderer , we can do <br />
+    ipcRenderer.on('asynchronous-reply',(event,args)=>{ <br />
+      console.log("returned result is "+args) <br />
     })
