@@ -40,3 +40,10 @@ Examples as given below
     ipcRenderer.on('asynchronous-reply',(event,args)=>{ <br />
       console.log("returned result is "+args) <br />
     })
+
+### Command Prompt Execution - Exec
+* We can execute shell commands through electron as below
+  > const exec = require('child_process').exec <br />
+    exec('enter command here',(error,stdout,stderr) =>{
+      console.log("output is "+stdout); // we can also perform all the string operations on stdout
+    })
